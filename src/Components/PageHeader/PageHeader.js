@@ -30,7 +30,7 @@ const PageHeader = () => {
               <NavLink
                 key={link.to}
                 to={link.to}
-                className="text-white hover:underline text-lg font-medium"
+                className="text-white hover-underline text-lg font-medium"
                 activeclassname="text-green-200"
                 onClick={toggleNav}
               >
@@ -39,10 +39,10 @@ const PageHeader = () => {
             ))}
           </div>
           <div className="flex items-center space-x-4">
-            <a href="https://github.com/Fr0za" className="text-white hover:text-green-200">
+            <a href="https://github.com/Fr0za" className="text-white hover:text-blue-200">
               <FaGithub className="text-2xl" />
             </a>
-            <a href="https://linkedin.com" className="text-white hover:text-green-200">
+            <a href="https://www.linkedin.com/in/jonas-%C5%BE-02035a254/" className="text-white hover:text-blue-200">
               <FaLinkedin className="text-2xl" />
             </a>
             <button

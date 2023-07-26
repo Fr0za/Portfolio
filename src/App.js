@@ -11,6 +11,8 @@ import Contacts from './Pages/Contacts/Contacts';
 
 import DogsAPI from './Pages/DogsAPI/DogsAPI';
 
+import './style/style.css';
+
 
 function App() {
   return (

@@ -49,17 +49,40 @@
 }
 
 .bg-gradient-to-r {
-  background-image: linear-gradient(to right, #00a876, #006d77, #003f3c);
+  background-image: linear-gradient(to right, #202020, #000000, #101010);
 }
 
+.text-green-200 {
+  color: #38a169;
+}
 
+.logo-image {
+  width: 100px;
+  height: auto;
+}
 
-.hover\:underline {
+nav {
+  background-color: #202020;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-white.hover\:hover:text-green-200 {
+  color: #38a169;
+}
+
+.navlink-active {
+  color: #38a169;
+}
+
+.hover-underline {
   position: relative;
   display: inline-block;
 }
 
-.hover\:underline::before {
+.hover-underline::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -72,12 +95,7 @@
   transition: all 0.4s ease-in-out;
 }
 
-.hover\:underline:hover::before {
+.hover-underline:hover::before {
   visibility: visible;
   transform: scaleX(1);
-}
-
-.logo-image {
-  width: 100px;
-  height: auto;
 }

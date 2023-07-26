@@ -5,15 +5,31 @@ const Projects = () => {
     {
       id: 1,
       title: 'Dogs API',
-      description: "The internet's biggest collection of open source dog pictures.",
+      description: "In this project, I gained valuable experience by working with React to fetch data from an API. As a result, I learned how to make API calls that respond to user input. Additionally, I successfully implemented loading indicators, which provided better feedback to users during data retrieval.",
       image: 'https://images.dog.ceo/breeds/germanshepherd/n02106662_18405.jpg',
       link: '/dogsapi',
       creditLink: 'https://dog.ceo/dog-api/',
     },
     {
       id: 2,
-      title: 'Game',
-      description: "Some kind of game",
+      title: 'Place Holder',
+      description: "Place Holder",
+      image: 'https://img.freepik.com/premium-photo/cyberpunk-gaming-controller-gamepad-joystick-illustration_691560-5812.jpg?w=2000',
+      link: '/home',
+      creditLink: '',
+    },
+    {
+      id: 3,
+      title: 'Place Holder',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      image: 'https://img.freepik.com/premium-photo/cyberpunk-gaming-controller-gamepad-joystick-illustration_691560-5812.jpg?w=2000',
+      link: '/home',
+      creditLink: '',
+    },
+    {
+      id: 4,
+      title: 'Place Holder',
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
       image: 'https://img.freepik.com/premium-photo/cyberpunk-gaming-controller-gamepad-joystick-illustration_691560-5812.jpg?w=2000',
       link: '/home',
       creditLink: '',
@@ -41,7 +57,7 @@ const Projects = () => {
                 />
               </a>
               <h3 className="text-lg font-semibold mb-2">
-                <a href={project.link} className="text-blue-500 hover:underline">
+                <a href={project.link} className="text-blue-500 hover-text-url-underline">
                   {project.title}
                 </a>
               </h3>

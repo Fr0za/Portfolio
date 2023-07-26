@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { shuffle } from 'lodash';
-import './About.css';
+import '../../style/style.css';
 
 const skills = [
   'HTML',
@@ -9,74 +9,16 @@ const skills = [
   'React',
   'Git',
   'GitHub',
-  'API',
   'Responsive Design',
-  'Internet Services',
-  'Electrical Wiring',
-  'Tv service',
-  'Computer Repair',
-  'Quality Management',
-  'Team Management',
   'Bootstraps',
   'Tailwind',
 ];
 
-const getRandomPosition = (min, max) => {
-  return Math.random() * (max - min) + min;
-};
-
 const About = () => {
   const [shuffledSkills, setShuffledSkills] = useState([]);
-  const buttonsRef = useRef([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setShuffledSkills(shuffle(skills));
-  }, []);
-
-  useEffect(() => {
-    const animateButtons = () => {
-      buttonsRef.current.forEach((button, index) => {
-        if (button && button.getBoundingClientRect) {
-          const { top, left, right, bottom } = button.getBoundingClientRect();
-          const newX = getRandomPosition(left + 50, right - 50);
-          const newY = getRandomPosition(top + 50, bottom - 50);
-
-          button.animate(
-            [
-              { transform: `translate(${newX}px, ${newY}px)` },
-              { transform: 'translate(0px, 0px)' },
-            ],
-            {
-              duration: 3000,
-              easing: 'ease-in-out',
-              fill: 'forwards',
-            }
-          );
-        }
-      });
-    };
-
-    const handleIntersection = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateButtons();
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersection, {
-      rootMargin: '0px',
-      threshold: 0.1,
-    });
-
-    const aboutSection = document.getElementById('aboutSection');
-    if (aboutSection) {
-      observer.observe(aboutSection);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
   }, []);
 
   return (
@@ -93,7 +35,7 @@ const About = () => {
           <div className="mt-4">
             <a
               href="/contacts"
-              className="bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-900 inline-block"
+              className="bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-900 inline-block"
             >
               Contact Me
             </a>
@@ -105,8 +47,7 @@ const About = () => {
             {shuffledSkills.map((skill, index) => (
               <button
                 key={skill}
-                ref={(el) => (buttonsRef.current[index] = el)}
-                className="skill-button m-2 py-2 px-4 text-white bg-green-700 hover:bg-green-800"
+                className="m-2 py-2 px-4 text-white bg-green-700 hover:bg-green-800 skill-button"
               >
                 {skill}
               </button>

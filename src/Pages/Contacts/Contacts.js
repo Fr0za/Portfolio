@@ -83,7 +83,7 @@ const Contacts = () => {
   };
 
   return (
-    <div className="bg-gray-100 py-8">
+    <div className="bg-gray-100 py-8 rounded-lg shadow-md">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-4">Send Me an Email</h2>
         {successMessage && (
@@ -187,7 +187,7 @@ const Contacts = () => {
           </div>
           <button
             type="submit"
-            className="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-900"
+            className="bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-900"
           >
             Send Email
           </button>
@@ -197,7 +197,7 @@ const Contacts = () => {
             href="https://github.com/Fr0za"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg text-gray-800 hover:text-green-600"
+            className="text-lg text-gray-800 hover:text-blue-600"
           >
             <FaGithub className="text-2xl" />
           </a>
@@ -205,7 +205,7 @@ const Contacts = () => {
             href="https://linkedin.com/in/your-profile"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg text-gray-800 hover:text-green-600"
+            className="text-lg text-gray-800 hover:text-blue-600"
           >
             <FaLinkedin className="text-2xl" />
           </a>

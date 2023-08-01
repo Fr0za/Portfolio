@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
+import { emailjs_service, emailjs_template, emailjs_userID } from '../../config';
 
 const Contacts = () => {
   const [email, setEmail] = useState('');
@@ -46,11 +47,11 @@ const Contacts = () => {
 
     if (isValid) {
       emailjs
-        .send('service_wew8zwr', 'template_qs1sbaa', {
+        .send(emailjs_service, emailjs_template, {
           from_email: email,
           from_subject: subject,
           message: message,
-        }, 'mzIYvJ5qNNzMZoxJo')
+        }, emailjs_userID)
         .then((response) => {
           console.log('Email sent successfully', response);
           setSuccessMessage('Email sent successfully');
@@ -137,7 +138,7 @@ const Contacts = () => {
         <form onSubmit={handleSubmit} className="max-w-md mx-auto" noValidate>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-800 font-medium mb-1">
-              Email
+              Email<span className="required-label">*</span>
             </label>
             <input
               type="email"
@@ -146,6 +147,7 @@ const Contacts = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-green-600"
+              placeholder="Enter your email"
               required
             />
             {emailError && (
@@ -154,7 +156,7 @@ const Contacts = () => {
           </div>
           <div className="mb-4">
             <label htmlFor="subject" className="block text-gray-800 font-medium mb-1">
-              Subject
+              Subject<span className="required-label">*</span>
             </label>
             <input
               type="text"
@@ -162,7 +164,8 @@ const Contacts = () => {
               name="subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-green-600"
+              className="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-green-600"              
+              placeholder='Subject must be at least 6 characters long'
               required
             />
             {subjectError && (
@@ -171,7 +174,7 @@ const Contacts = () => {
           </div>
           <div className="mb-4">
             <label htmlFor="message" className="block text-gray-800 font-medium mb-1">
-              Message
+              Message<span className="required-label">*</span>
             </label>
             <textarea
               id="message"
@@ -179,6 +182,7 @@ const Contacts = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="w-full border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-green-600"
+              placeholder='Message must be at least 15 characters long'
               required
             ></textarea>
             {messageError && (

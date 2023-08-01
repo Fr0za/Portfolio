@@ -1,4 +1,6 @@
+import React, { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import 'tailwindcss/tailwind.css';
 
 import PageHeader from './Components/PageHeader/PageHeader';
@@ -13,8 +15,14 @@ import DogsAPI from './Pages/DogsAPI/DogsAPI';
 
 import './style/style.css';
 
+import { googleTrackingID } from './config';
+ReactGA.initialize(googleTrackingID);
 
 function App() {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <PageHeader />

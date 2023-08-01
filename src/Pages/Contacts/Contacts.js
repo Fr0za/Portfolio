@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
+
 import { emailjs_service, emailjs_template, emailjs_userID } from '../../config';
 
 const Contacts = () => {

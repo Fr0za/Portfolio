@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import ReactGA from 'react-ga';
+
+import './style/style.css';
 import 'tailwindcss/tailwind.css';
 
 import PageHeader from './Components/PageHeader/PageHeader';
@@ -10,10 +12,7 @@ import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
 import Projects from './Pages/Projects/Projects';
 import Contacts from './Pages/Contacts/Contacts';
-
 import DogsAPI from './Pages/DogsAPI/DogsAPI';
-
-import './style/style.css';
 
 import { googleTrackingID } from './config';
 ReactGA.initialize(googleTrackingID);

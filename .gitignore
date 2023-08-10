@@ -24,7 +24,6 @@ yarn-error.log*
 deploy.sh
 config.js
 tailwind.config.js
-README.md
-package-lock.json
 package.json
+package-lock.json
 .gitignore

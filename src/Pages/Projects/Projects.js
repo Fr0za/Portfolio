@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Projects = () => {
   const projects = [
@@ -12,11 +12,11 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Place Holder',
-      description: "Place Holder",
+      title: 'Json Placeholder API',
+      description: "During this project, I improved my React skills by working with APIs and creating responsive user interactions. I added dynamic search with filtering to help users find blog posts easily. Users can now edit and delete posts for a smoother content management experience. I also implemented a 'Show More/Show Less' feature to improve post readability. The seamless data communication between components enables efficient post creation, editing, and deletion.",
       image: 'https://img.freepik.com/premium-photo/cyberpunk-gaming-controller-gamepad-joystick-illustration_691560-5812.jpg?w=2000',
-      link: '/home',
-      creditLink: '',
+      link: '/jsonapi',
+      creditLink: 'https://jsonplaceholder.typicode.com/',
     },
     {
       id: 3,
@@ -36,6 +36,19 @@ const Projects = () => {
     },
   ];
 
+  const MAX_DESCRIPTION_LENGTH = 150;
+  const MAX_HEIGHT_IMAGE = 250; 
+
+  const [expandedDescriptionIds, setExpandedDescriptionIds] = useState([]);
+
+  const toggleExpand = (projectId) => {
+    setExpandedDescriptionIds((prevExpanded) =>
+      prevExpanded.includes(projectId)
+        ? prevExpanded.filter((id) => id !== projectId)
+        : [...prevExpanded, projectId]
+    );
+  };
+
   return (
     <div className="bg-gray-100 py-8">
       <div className="container mx-auto px-4">
@@ -54,6 +67,7 @@ const Projects = () => {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-auto rounded-md"
+                  style={{ height: MAX_HEIGHT_IMAGE }}
                 />
               </a>
               <h3 className="text-lg font-semibold mb-2">
@@ -61,7 +75,23 @@ const Projects = () => {
                   {project.title}
                 </a>
               </h3>
-              <p className="text-gray-700">{project.description}</p>
+              {project.description.length > MAX_DESCRIPTION_LENGTH ? (
+                <>
+                  <p className="text-gray-700">
+                    {expandedDescriptionIds.includes(project.id)
+                      ? project.description
+                      : `${project.description.slice(0, MAX_DESCRIPTION_LENGTH)}...`}
+                  </p>
+                  <button
+                    className="text-blue-500 hover-text-url-underline mt-2"
+                    onClick={() => toggleExpand(project.id)}
+                  >
+                    {expandedDescriptionIds.includes(project.id) ? 'Show less' : 'Show more'}
+                  </button>
+                </>
+              ) : (
+                <p className="text-gray-700">{project.description}</p>
+              )}
               {project.creditLink && (
                 <p className="mt-2">
                   Credits: <a href={project.creditLink}>{project.creditLink}</a>
